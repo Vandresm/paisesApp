@@ -9,9 +9,14 @@
 <div class="row">
     <div class="col">
         <button *ngFor="let item of regiones;"
-                class="btn btn-outline-primary m-1"
-                
+                [class]="getClaseCSS(item)"                
                 (click)="activarRegion(item)"
-        >  {{item}}  </button>
+        >  {{item | titlecase}}  </button>
+    </div>
+</div>
+
+<div class="row" *ngIf="paises.length > 0">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>        
     </div>
 </div>
